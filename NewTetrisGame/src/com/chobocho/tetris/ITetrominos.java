@@ -19,7 +19,7 @@ public class ITetrominos extends Tetrominos {
         };
         numOfBlockType = 2;
         x = 3;
-        y = 0;
+        y = -4;
         r = 0;
         w = 4;
         h = 4;
