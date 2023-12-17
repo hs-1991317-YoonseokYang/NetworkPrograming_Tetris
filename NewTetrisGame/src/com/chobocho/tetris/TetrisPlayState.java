@@ -65,7 +65,9 @@ public class TetrisPlayState extends TetrisGameState {
         } else {
             currentTetrominos.moveUp();
             TetrisLog.d("Can not move down");
-            fixCurrentBlock();
+            if(currentTetrominos.y<0)
+                tetris.setGameOver();
+            fixCurrentBlock();//여기서 고정시켜 버리고 화면에 그림..
             updateBoard();
             updateBlock() ;
         }
@@ -94,7 +96,7 @@ public class TetrisPlayState extends TetrisGameState {
         nextTetrominos = TetrominosFactory.create();
     }
 
-    public boolean gameOver() {
+    public boolean gameOver() {//여기다..
         TetrisLog.d("Check Game over!");
         return !tetrisBoard.isAcceptable(currentTetrominos);
     }

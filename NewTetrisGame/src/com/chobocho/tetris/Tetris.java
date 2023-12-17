@@ -30,6 +30,12 @@ public class Tetris implements ITetris {
         gameOverState = new TetrisGameOverState(this);
     }
 
+    @Override
+    public void setGameOver() {
+        setState(gameOverState);
+        TetrisLog.d("나오다 걸쳐서 게임종료");
+    }
+
     public void init() {
         TetrisLog.d("Tetris.Init()");
         score = 0;
@@ -71,8 +77,9 @@ public class Tetris implements ITetris {
     }
 
     public void moveDown() {
-        if (gameState.gameOver()) {
+        if (gameState.gameOver()) {//이걸 언제 누가 설정하느냐..<- 여기서 게임 종료가 선언되야 하는데 그러지 않았다.
             setState(gameOverState);
+            TetrisLog.d("게임종료");
         } else {
             gameState.moveDown();
         }

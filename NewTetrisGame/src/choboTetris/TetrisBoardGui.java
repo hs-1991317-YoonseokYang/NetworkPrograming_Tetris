@@ -51,7 +51,7 @@ public class TetrisBoardGui extends JPanel implements ITetrisObserver {
     public void paint(Graphics g)
     {
         super.paint(g);
-        Dimension size = getSize();
+        Dimension size = getSize();//이 사이즈는 jFrame에 이녀석이 어떻게 부착되어있느냐에 따라 달라짐
 
         int width = (int)size.getWidth();
         int height = (int)size.getHeight();
@@ -64,10 +64,10 @@ public class TetrisBoardGui extends JPanel implements ITetrisObserver {
         graphicsBuffer.setColor(Color.DARK_GRAY);
         graphicsBuffer.fillRect(0, 0, width, height);
 
-        int boardY = (int) size.getHeight() - BOARD_HEIGHT * blockHeight();
+        int boardY = (int) size.getHeight() - BOARD_HEIGHT * blockHeight();//이건 무슨 높이인가?..
         int boardX = (int) (size.getWidth() - BOARD_WIDTH * blockWidth())/2;
 
-        playerOne.onDraw(graphicsBuffer, boardX, boardY, blockWidth(), blockHeight());
+        playerOne.onDraw(graphicsBuffer, boardX, boardY, blockWidth(), blockHeight());//이 데이터만 보내면 되지 않나요??
 
         g.drawImage(screenBuffer, 0, 0, null);
 

@@ -109,7 +109,7 @@ public class Player implements IPlayer, ActionListener {
             return;
         }
         if (tetris.isPlayState()) {
-            tetris.moveDown();
+            tetris.moveDown();//여기서 게임 종료 여부를 찾는다<- 게임종료는 GamePlayState에서 확인<- GameBoard의 isAcceptable()이용
             gameSpeed = 700 - (tetris.getScore() / 100000);
             tetrisTimer.setDelay(gameSpeed);
         } else if (tetris.isGameOverState()) {
