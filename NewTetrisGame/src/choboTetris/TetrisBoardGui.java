@@ -38,8 +38,8 @@ public class TetrisBoardGui extends JPanel implements ITetrisObserver {
         System.out.println("Tetris (d) View.update()");
         repaint();
     }
-    private int blockWidth() { return (int) getSize().getWidth() / BOARD_WIDTH; }
-    private int blockHeight() { return (int) getSize().getHeight() / BOARD_HEIGHT; }
+    private int blockWidth() { return (int) getSize().getWidth() / BOARD_WIDTH; }//제jfram의 너비 나누기/ 게임 보드의 너비<-한 블럭의 크기는 이만큼으로 해야겠지
+    private int blockHeight() { return (int) getSize().getHeight() / BOARD_HEIGHT; }//소수점 아래 부분을 날려버림으로써<-
 
 
     public void start()
@@ -62,12 +62,15 @@ public class TetrisBoardGui extends JPanel implements ITetrisObserver {
 
         graphicsBuffer = screenBuffer.getGraphics();
         graphicsBuffer.setColor(Color.DARK_GRAY);
-        graphicsBuffer.fillRect(0, 0, width, height);
+        graphicsBuffer.fillRect(0, 0, width, height); //게임보드 밖 색상 칠해줌<- 보드는 jpanel안에 그려진 것이다.(이 전체는 jpanel)
 
-        int boardY = (int) size.getHeight() - BOARD_HEIGHT * blockHeight();//이건 무슨 높이인가?..
+        int boardY = (int) size.getHeight() - BOARD_HEIGHT * blockHeight();//전체 jpanel길이에서 게임진행 창 길이를 뺌
         int boardX = (int) (size.getWidth() - BOARD_WIDTH * blockWidth())/2;
 
-        playerOne.onDraw(graphicsBuffer, boardX, boardY, blockWidth(), blockHeight());//이 데이터만 보내면 되지 않나요??
+        System.out.println(this.toString()+"getHeight"+size.getHeight()+"getWidth"+size.getWidth());
+        System.out.println("blockHeight"+blockHeight()+"blockWidth"+blockWidth());
+
+        playerOne.onDraw(graphicsBuffer, boardX, boardY, blockWidth(), blockHeight());//이 데이터만 보내면 되지 않나요??<-필요없어 이건 내가 정하면 돼
 
         g.drawImage(screenBuffer, 0, 0, null);
 
