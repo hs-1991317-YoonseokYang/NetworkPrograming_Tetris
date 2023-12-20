@@ -14,7 +14,7 @@ public class OTetrominos extends Tetrominos {
         };
         numOfBlockType = 1;
         x = 4;
-        y = 0;
+        y = -2;//수정
         r = 0;
         w = 2;
         h = 2;

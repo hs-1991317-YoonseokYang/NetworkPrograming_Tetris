@@ -20,7 +20,7 @@ public class ZTetrominos extends Tetrominos {
         };
         numOfBlockType = 2;
         x = 4;
-        y = 0;
+        y = -3;
         r = 0;
         w = 3;
         h = 3;

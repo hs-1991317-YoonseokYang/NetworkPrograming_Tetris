@@ -4,6 +4,9 @@ package com.chobocho.tetris;
  * 
  */
 public interface ITetris {
+
+    public void setGameOver();
+
     public void init();
 
     public void moveLeft();
